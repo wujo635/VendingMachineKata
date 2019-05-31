@@ -20,12 +20,12 @@ public class VendingMachine {
 
     public String getDisplay() {
         if (amountInserted > 0) {
-            return String.format("%.2f", this.amountInserted / 100.0);
+            return String.format("%.2f", amountInserted / 100.0);
         }
         return "INSERT COIN";
     }
 
     public void insert(String coin) {
-        this.amountInserted += this.coinValueMap.get(coin);
+        amountInserted += coinValueMap.get(coin);
     }
 }
