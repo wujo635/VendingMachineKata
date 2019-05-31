@@ -1,8 +1,18 @@
 package com.pillar.kata;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class VendingMachine {
 
     private int amountInserted;
+    private static Map<String, Integer> coinValueMap;
+
+    static {
+        coinValueMap = new HashMap<>();
+        coinValueMap.put("NICKEL", 5);
+        coinValueMap.put("DIME", 10);
+    }
 
     VendingMachine() {
         this.amountInserted = 0;
@@ -16,10 +26,6 @@ public class VendingMachine {
     }
 
     public void insert(String coin) {
-        if (coin.equals("NICKEL")) {
-            this.amountInserted += 5;
-        } else {
-            this.amountInserted += 10;
-        }
+        this.amountInserted += this.coinValueMap.get(coin);
     }
 }
