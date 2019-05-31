@@ -6,8 +6,10 @@ import static org.junit.Assert.assertEquals;
 
 public class VendingMachineTest {
 
+    private VendingMachine machine = new VendingMachine();
+
     @Test
-    public void shouldStartWithSanityCheck() {
-        assertEquals(1, 1);
+    public void shouldDisplayInsertCoinWithNothingInserted() {
+        assertEquals("INSERT COIN", machine.getDisplay());
     }
 }
