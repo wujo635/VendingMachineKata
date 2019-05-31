@@ -42,4 +42,10 @@ public class VendingMachineTest {
         machine.insert("BUTTON");
         assertEquals("INSERT COIN", machine.getDisplay());
     }
+
+    @Test
+    public void shouldPlaceRejectedInsertsIntoCoinReturn() {
+        machine.insert("PENNY");
+        assertEquals("PENNY", machine.getCoinReturn());
+    }
 }

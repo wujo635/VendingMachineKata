@@ -31,4 +31,8 @@ public class VendingMachine {
             amountInserted += coinValueMap.get(coin);
         }
     }
+
+    public String getCoinReturn() {
+        return "";
+    }
 }
