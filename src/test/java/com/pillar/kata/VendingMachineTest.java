@@ -30,4 +30,10 @@ public class VendingMachineTest {
         machine.insert("QUARTER");
         assertEquals("0.25", machine.getDisplay());
     }
+
+    @Test
+    public void shouldNotAcceptPenny() {
+        machine.insert("PENNY");
+        assertEquals("INSERT COIN", machine.getDisplay());
+    }
 }
