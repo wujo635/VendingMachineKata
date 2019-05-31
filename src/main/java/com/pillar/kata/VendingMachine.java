@@ -27,6 +27,8 @@ public class VendingMachine {
     }
 
     public void insert(String coin) {
-        amountInserted += coinValueMap.get(coin);
+        if (coinValueMap.containsKey(coin)) {
+            amountInserted += coinValueMap.get(coin);
+        }
     }
 }
