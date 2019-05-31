@@ -24,4 +24,10 @@ public class VendingMachineTest {
         machine.insert("DIME");
         assertEquals("0.10", machine.getDisplay());
     }
+
+    @Test
+    public void shouldAcceptQuarter() {
+        machine.insert("QUARTER");
+        assertEquals("0.25", machine.getDisplay());
+    }
 }
