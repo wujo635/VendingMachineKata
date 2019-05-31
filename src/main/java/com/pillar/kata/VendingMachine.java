@@ -33,6 +33,6 @@ public class VendingMachine {
     }
 
     public String getCoinReturn() {
-        return "";
+        return "PENNY";
     }
 }
