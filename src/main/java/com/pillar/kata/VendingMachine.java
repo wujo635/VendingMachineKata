@@ -10,12 +10,16 @@ public class VendingMachine {
 
     public String getDisplay() {
         if (amountInserted > 0) {
-            return "0.05";
+            return String.format("%.2f", this.amountInserted / 100.0);
         }
         return "INSERT COIN";
     }
 
     public void insert(String coin) {
-        amountInserted += 5;
+        if (coin.equals("NICKEL")) {
+            this.amountInserted += 5;
+        } else {
+            this.amountInserted += 10;
+        }
     }
 }
