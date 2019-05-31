@@ -36,4 +36,10 @@ public class VendingMachineTest {
         machine.insert("PENNY");
         assertEquals("INSERT COIN", machine.getDisplay());
     }
+
+    @Test
+    public void shouldDisallowOtherInsertions() {
+        machine.insert("BUTTON");
+        assertEquals("INSERT COIN", machine.getDisplay());
+    }
 }
