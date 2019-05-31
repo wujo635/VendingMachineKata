@@ -18,4 +18,10 @@ public class VendingMachineTest {
         machine.insert("NICKEL");
         assertEquals("0.05", machine.getDisplay());
     }
+
+    @Test
+    public void shouldAcceptDime() {
+        machine.insert("DIME");
+        assertEquals("0.10", machine.getDisplay());
+    }
 }
