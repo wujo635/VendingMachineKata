@@ -36,4 +36,10 @@ public class VendingMachineTest {
         assertEquals("PENNY", machine.getCoinReturn());
     }
 
+    @Test
+    public void shouldDisplayThankYouWhenProductDispensed() {
+        machine.select("COLA");
+        assertEquals("THANK YOU", machine.getDisplay());
+    }
+
 }

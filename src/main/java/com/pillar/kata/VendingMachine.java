@@ -22,4 +22,8 @@ public class VendingMachine {
     public String getCoinReturn() {
         return coinManager.getCoinReturn();
     }
+
+    public void select(String item) {
+
+    }
 }
