@@ -42,4 +42,11 @@ public class CoinManagerTest {
         coinManager.insert("PENNY");
         assertEquals("PENNY", coinManager.getCoinReturn());
     }
+
+    @Test
+    public void shouldAllowReturnMultipleUnacceptedCoins() {
+        coinManager.insert("PENNY");
+        coinManager.insert("SILVER DOLLAR");
+        assertEquals("PENNY, SILVER DOLLAR", coinManager.getCoinReturn());
+    }
 }
