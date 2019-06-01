@@ -30,4 +30,16 @@ public class CoinManagerTest {
         coinManager.insert("QUARTER");
         assertEquals(25, coinManager.getValue());
     }
+
+    @Test
+    public void shouldNotUpdateValueWithUnacceptedCoin() {
+        coinManager.insert("PENNY");
+        assertEquals(0, coinManager.getValue());
+    }
+
+    @Test
+    public void shouldReturnUnacceptedCoin() {
+        coinManager.insert("PENNY");
+        assertEquals("PENNY", coinManager.getCoinReturn());
+    }
 }

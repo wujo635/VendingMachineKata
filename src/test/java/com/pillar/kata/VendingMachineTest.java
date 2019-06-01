@@ -19,37 +19,19 @@ public class VendingMachineTest {
     }
 
     @Test
-    public void shouldAcceptNickel() {
-        machine.insert("NICKEL");
-        assertEquals("0.05", machine.getDisplay());
-    }
-
-    @Test
-    public void shouldAcceptDime() {
-        machine.insert("DIME");
-        assertEquals("0.10", machine.getDisplay());
-    }
-
-    @Test
-    public void shouldAcceptQuarter() {
+    public void shouldUpdateTotalGivenAcceptableCoin() {
         machine.insert("QUARTER");
         assertEquals("0.25", machine.getDisplay());
     }
 
     @Test
-    public void shouldNotAcceptPenny() {
-        machine.insert("PENNY");
-        assertEquals("INSERT COIN", machine.getDisplay());
-    }
-
-    @Test
-    public void shouldDisallowOtherInsertions() {
+    public void shouldNotUpdateTotalOnUnacceptedInsert() {
         machine.insert("BUTTON");
         assertEquals("INSERT COIN", machine.getDisplay());
     }
 
     @Test
-    public void shouldPlaceRejectedInsertsIntoCoinReturn() {
+    public void shouldReturnUnacceptedInsert() {
         machine.insert("PENNY");
         assertEquals("PENNY", machine.getCoinReturn());
     }
