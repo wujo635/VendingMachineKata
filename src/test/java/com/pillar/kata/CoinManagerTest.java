@@ -49,4 +49,11 @@ public class CoinManagerTest {
         coinManager.insert("SILVER DOLLAR");
         assertEquals("PENNY, SILVER DOLLAR", coinManager.getCoinReturn());
     }
+
+    @Test
+    public void shouldAccumulateAcceptedCoinTotal() {
+        coinManager.insert("NICKEL");
+        coinManager.insert("DIME");
+        assertEquals(15, coinManager.getValue());
+    }
 }
