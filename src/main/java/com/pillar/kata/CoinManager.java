@@ -7,6 +7,7 @@ public class CoinManager {
 
     private static Map<String, Integer> coinValueMap;
     private int totalCents;
+    private String coinReturn;
 
     static {
         coinValueMap = new HashMap<>();
@@ -17,11 +18,14 @@ public class CoinManager {
 
     CoinManager() {
         this.totalCents = 0;
+        this.coinReturn = "";
     }
 
     protected void insert(String coin) {
         if (coinValueMap.containsKey(coin)) {
             totalCents += coinValueMap.get(coin);
+        } else {
+            coinReturn += coin;
         }
     }
 
@@ -29,4 +33,7 @@ public class CoinManager {
         return this.totalCents;
     }
 
+    public String getCoinReturn() {
+        return this.coinReturn;
+    }
 }

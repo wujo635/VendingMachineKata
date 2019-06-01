@@ -20,6 +20,6 @@ public class VendingMachine {
     }
 
     public String getCoinReturn() {
-        return "PENNY";
+        return coinManager.getCoinReturn();
     }
 }
