@@ -14,6 +14,11 @@ public class VendingMachineTest {
     }
 
     @Test
+    public void shouldInitializeEmptyCoinReturn() {
+        assertEquals("", machine.getCoinReturn());
+    }
+
+    @Test
     public void shouldAcceptNickel() {
         machine.insert("NICKEL");
         assertEquals("0.05", machine.getDisplay());
@@ -48,4 +53,5 @@ public class VendingMachineTest {
         machine.insert("PENNY");
         assertEquals("PENNY", machine.getCoinReturn());
     }
+
 }
