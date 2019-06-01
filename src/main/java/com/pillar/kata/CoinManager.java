@@ -25,6 +25,9 @@ public class CoinManager {
         if (coinValueMap.containsKey(coin)) {
             totalCents += coinValueMap.get(coin);
         } else {
+            if (!coinReturn.equals("")) {
+                coinReturn += ", ";
+            }
             coinReturn += coin;
         }
     }
