@@ -9,6 +9,11 @@ public class CoinManagerTest {
     private CoinManager coinManager = new CoinManager();
 
     @Test
+    public void shouldInitializeAmountToZero() {
+        assertEquals(0, coinManager.getValue());
+    }
+
+    @Test
     public void shouldAcceptNickel() {
         coinManager.insert("NICKEL");
         assertEquals(5, coinManager.getValue());
