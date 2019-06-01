@@ -25,11 +25,15 @@ public class CoinManager {
         if (coinValueMap.containsKey(coin)) {
             totalCents += coinValueMap.get(coin);
         } else {
-            if (!coinReturn.equals("")) {
-                coinReturn += ", ";
-            }
-            coinReturn += coin;
+            addToCoinReturn(coin);
         }
+    }
+
+    private void addToCoinReturn(String coin) {
+        if (!coinReturn.equals("")) {
+            coinReturn += ", ";
+        }
+        coinReturn += coin;
     }
 
     protected int getValue() {
