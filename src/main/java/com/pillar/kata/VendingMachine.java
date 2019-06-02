@@ -15,6 +15,7 @@ public class VendingMachine {
             return String.format("%.2f", coinManager.getValue() / 100.0);
         }
         if (itemVended) {
+            itemVended = false;
             return "THANK YOU";
         }
         return "INSERT COIN";
