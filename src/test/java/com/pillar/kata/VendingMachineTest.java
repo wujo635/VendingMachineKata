@@ -49,4 +49,10 @@ public class VendingMachineTest {
         assertEquals("INSERT COIN", machine.getDisplay());
     }
 
+    @Test
+    public void shouldDisplayPriceWhenNotEnoughMoneyInserted() {
+        machine.select("COLA");
+        assertEquals("PRICE 1.00", machine.getDisplay());
+    }
+
 }
