@@ -42,4 +42,11 @@ public class VendingMachineTest {
         assertEquals("THANK YOU", machine.getDisplay());
     }
 
+    @Test
+    public void shouldDisplayInsertCoinAfterThankYou() {
+        machine.select("COLA");
+        machine.getDisplay();
+        assertEquals("INSERT COIN", machine.getDisplay());
+    }
+
 }
