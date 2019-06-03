@@ -4,19 +4,25 @@ public class VendingMachine {
 
     private CoinManager coinManager;
     private boolean itemVended;
+    private boolean itemFailedToVend;
 
     VendingMachine() {
         this.coinManager = new CoinManager();
         this.itemVended = false;
+        this.itemFailedToVend = false;
     }
 
     public String getDisplay() {
-        if (coinManager.getValue() > 0) {
-            return String.format("%.2f", coinManager.getValue() / 100.0);
-        }
         if (itemVended) {
             itemVended = false;
             return "THANK YOU";
+        }
+        if (itemFailedToVend) {
+            itemFailedToVend = false;
+            return "PRICE 1.00";
+        }
+        if (coinManager.getValue() > 0) {
+            return String.format("%.2f", coinManager.getValue() / 100.0);
         }
         return "INSERT COIN";
     }
@@ -30,6 +36,11 @@ public class VendingMachine {
     }
 
     public void select(String item) {
-        this.itemVended = true;
+        if (coinManager.getValue() >= 100) {
+            itemVended = true;
+            coinManager = new CoinManager();
+        } else {
+            itemFailedToVend = true;
+        }
     }
 }

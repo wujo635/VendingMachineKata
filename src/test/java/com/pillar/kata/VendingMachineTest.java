@@ -8,6 +8,13 @@ public class VendingMachineTest {
 
     private VendingMachine machine = new VendingMachine();
 
+    private void quickDollarInsert() {
+        machine.insert("QUARTER");
+        machine.insert("QUARTER");
+        machine.insert("QUARTER");
+        machine.insert("QUARTER");
+    }
+
     @Test
     public void shouldDisplayInsertCoinWithNothingInserted() {
         assertEquals("INSERT COIN", machine.getDisplay());
@@ -38,12 +45,14 @@ public class VendingMachineTest {
 
     @Test
     public void shouldDisplayThankYouWhenProductDispensed() {
+        this.quickDollarInsert();
         machine.select("COLA");
         assertEquals("THANK YOU", machine.getDisplay());
     }
 
     @Test
     public void shouldDisplayInsertCoinAfterThankYou() {
+        this.quickDollarInsert();
         machine.select("COLA");
         machine.getDisplay();
         assertEquals("INSERT COIN", machine.getDisplay());
