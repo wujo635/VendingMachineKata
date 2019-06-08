@@ -15,9 +15,6 @@ public class ProductCatalog {
         if (itemPriceMap.containsKey(name)) {
             return itemPriceMap.get(name);
         }
-        if (name.equals("COLA")) {
-            return 100;
-        }
         return 0;
     }
 

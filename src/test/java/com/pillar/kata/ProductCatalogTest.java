@@ -11,6 +11,7 @@ public class ProductCatalogTest {
 
     @Test
     public void shouldAllowAccessToPriceOfProduct() {
+        catalog.add("COLA", 100);
         assertEquals(100, catalog.getPrice("COLA"));
     }
 
