@@ -64,4 +64,11 @@ public class VendingMachineTest {
         assertEquals("PRICE 1.00", machine.getDisplay());
     }
 
+    @Test
+    public void shouldDisplayInsertCoinAfterPriceWhenCoinInserted() {
+        machine.select("COLA");
+        machine.getDisplay();
+        assertEquals("INSERT COIN", machine.getDisplay());
+    }
+
 }
