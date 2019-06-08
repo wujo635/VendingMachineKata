@@ -18,4 +18,10 @@ public class ProductCatalogTest {
     public void shouldReturnPriceZeroGivenInvalidProduct() {
         assertEquals(0, catalog.getPrice("CHOCOLATE"));
     }
+
+    @Test
+    public void shouldAllowAddProductGivenNameAndPrice() {
+        catalog.add("CHIPS", 50);
+        assertEquals(50, catalog.getPrice("CHIPS"));
+    }
 }

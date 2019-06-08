@@ -8,4 +8,8 @@ public class ProductCatalog {
         }
         return 0;
     }
+
+    public void add(String name, int price) {
+
+    }
 }
