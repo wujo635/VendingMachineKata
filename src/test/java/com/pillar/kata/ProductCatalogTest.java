@@ -13,4 +13,9 @@ public class ProductCatalogTest {
     public void shouldAllowAccessToPriceOfProduct() {
         assertEquals(100, catalog.getPrice("COLA"));
     }
+
+    @Test
+    public void shouldReturnPriceZeroGivenInvalidProduct() {
+        assertEquals(0, catalog.getPrice("CHOCOLATE"));
+    }
 }
