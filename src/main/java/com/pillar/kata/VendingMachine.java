@@ -12,6 +12,7 @@ public class VendingMachine {
         this.itemFailedToVend = false;
     }
 
+    // TODO simplify message return, try to avoid extra state
     public String getDisplay() {
         if (itemVended) {
             itemVended = false;

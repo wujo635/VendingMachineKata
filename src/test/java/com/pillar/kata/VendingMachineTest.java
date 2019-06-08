@@ -71,4 +71,10 @@ public class VendingMachineTest {
         assertEquals("INSERT COIN", machine.getDisplay());
     }
 
+    @Test
+    public void shouldAllowChipsToBeSelected() {
+        machine.select("CHIPS");
+        assertEquals("PRICE 0.50", machine.getDisplay());
+    }
+
 }
