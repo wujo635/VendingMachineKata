@@ -1,26 +1,25 @@
 package com.pillar.kata;
 
+import java.util.Queue;
+
 public class VendingMachine {
 
     private CoinManager coinManager;
-    private boolean itemVended;
-    private boolean itemFailedToVend;
+    private ProductCatalog catalog;
+    private String intermediateMessage;
 
     VendingMachine() {
         this.coinManager = new CoinManager();
-        this.itemVended = false;
-        this.itemFailedToVend = false;
+        this.catalog = new ProductCatalog();
+        this.intermediateMessage = "";
     }
 
     // TODO simplify message return, try to avoid extra state
     public String getDisplay() {
-        if (itemVended) {
-            itemVended = false;
-            return "THANK YOU";
-        }
-        if (itemFailedToVend) {
-            itemFailedToVend = false;
-            return "PRICE 1.00";
+        if (!intermediateMessage.equals("")) {
+            String temp = intermediateMessage;
+            intermediateMessage = "";
+            return temp;
         }
         if (coinManager.getValue() > 0) {
             return String.format("%.2f", coinManager.getValue() / 100.0);
@@ -37,11 +36,12 @@ public class VendingMachine {
     }
 
     public void select(String item) {
-        if (coinManager.getValue() >= 100) {
-            itemVended = true;
+        int itemPrice = catalog.getPrice(item);
+        if (itemPrice > 0 && coinManager.getValue() >= itemPrice) {
+            intermediateMessage = "THANK YOU";
             coinManager = new CoinManager();
         } else {
-            itemFailedToVend = true;
+            intermediateMessage = "PRICE " + String.format("%.2f", itemPrice / 100.0);
         }
     }
 }

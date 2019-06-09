@@ -9,6 +9,8 @@ public class ProductCatalog {
 
     ProductCatalog() {
         itemPriceMap = new HashMap<>();
+        itemPriceMap.put("COLA", 100);
+        itemPriceMap.put("CHIPS", 50);
     }
 
     public int getPrice(String name) {
