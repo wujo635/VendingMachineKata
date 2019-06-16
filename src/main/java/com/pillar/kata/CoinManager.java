@@ -51,16 +51,16 @@ public class CoinManager {
 
     private void nextCoinChange(int changeToReturn) {
         if (changeToReturn > 0) {
+            String coin;
             if (changeToReturn >= coinValueMap.get("QUARTER")) {
-                addToCoinReturn("QUARTER");
-                changeToReturn -= coinValueMap.get("QUARTER");
+                coin = "QUARTER";
             } else if (changeToReturn >= coinValueMap.get("DIME")) {
-                addToCoinReturn("DIME");
-                changeToReturn -= coinValueMap.get("DIME");
-            } else if (changeToReturn >= coinValueMap.get("NICKEL")) {
-                addToCoinReturn("NICKEL");
-                changeToReturn -= coinValueMap.get("NICKEL");
+                coin = "DIME";
+            } else {
+                coin = "NICKEL";
             }
+            addToCoinReturn(coin);
+            changeToReturn -= coinValueMap.get(coin);
             nextCoinChange(changeToReturn);
         }
     }
