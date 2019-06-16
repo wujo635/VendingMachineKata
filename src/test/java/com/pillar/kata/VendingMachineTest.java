@@ -89,6 +89,6 @@ public class VendingMachineTest {
     public void shouldReturnChangeInCoinReturn() {
         quickDollarInsert();
         machine.select("CHIPS");
-        assertEquals("QUARTER QUARTER", machine.getCoinReturn());
+        assertEquals("QUARTER, QUARTER", machine.getCoinReturn());
     }
 }

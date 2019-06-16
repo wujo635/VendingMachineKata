@@ -45,6 +45,6 @@ public class CoinManager {
     }
 
     protected void makeChange(int itemPrice) {
-        this.coinReturn = "QUARTER QUARTER";
+        this.coinReturn = "QUARTER, QUARTER";
     }
 }
