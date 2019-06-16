@@ -11,6 +11,7 @@ public class ProductCatalog {
         itemPriceMap = new HashMap<>();
         itemPriceMap.put("COLA", 100);
         itemPriceMap.put("CHIPS", 50);
+        itemPriceMap.put("CANDY", 65);
     }
 
     public int getPrice(String name) {
