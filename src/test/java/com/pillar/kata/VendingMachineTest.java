@@ -91,4 +91,11 @@ public class VendingMachineTest {
         machine.select("CHIPS");
         assertEquals("QUARTER, QUARTER", machine.getCoinReturn());
     }
+
+    @Test
+    public void shouldReturnNoChangeWhenExactPriceIsInserted() {
+        quickDollarInsert();
+        machine.select("COLA");
+        assertEquals("", machine.getCoinReturn());
+    }
 }
