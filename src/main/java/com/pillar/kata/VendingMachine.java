@@ -1,25 +1,23 @@
 package com.pillar.kata;
 
+import java.util.LinkedList;
 import java.util.Queue;
 
 public class VendingMachine {
 
     private CoinManager coinManager;
     private ProductCatalog catalog;
-    private String intermediateMessage;
+    private Queue<String> message;
 
     VendingMachine() {
         this.coinManager = new CoinManager();
         this.catalog = new ProductCatalog();
-        this.intermediateMessage = "";
+        this.message = new LinkedList<>();
     }
 
-    // TODO simplify message return, try to avoid extra state
     public String getDisplay() {
-        if (!intermediateMessage.equals("")) {
-            String temp = intermediateMessage;
-            intermediateMessage = "";
-            return temp;
+        if (message.peek() != null) {
+            return message.remove();
         }
         if (coinManager.getValue() > 0) {
             return String.format("%.2f", coinManager.getValue() / 100.0);
@@ -38,10 +36,10 @@ public class VendingMachine {
     public void select(String item) {
         int itemPrice = catalog.getPrice(item);
         if (itemPrice > 0 && coinManager.getValue() >= itemPrice) {
-            intermediateMessage = "THANK YOU";
+            message.add("THANK YOU");
             coinManager = new CoinManager();
         } else {
-            intermediateMessage = "PRICE " + String.format("%.2f", itemPrice / 100.0);
+            message.add("PRICE " + String.format("%.2f", itemPrice / 100.0));
         }
     }
 }
