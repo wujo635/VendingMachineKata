@@ -86,7 +86,7 @@ public class VendingMachineTest {
     }
 
     @Test
-    public void shouldReturnChangeInCoinReturn() {
+    public void shouldAllowChangeInCoinReturnUsingOneTypeOfCoin() {
         quickDollarInsert();
         machine.select("CHIPS");
         assertEquals("QUARTER, QUARTER", machine.getCoinReturn());
@@ -97,5 +97,12 @@ public class VendingMachineTest {
         quickDollarInsert();
         machine.select("COLA");
         assertEquals("", machine.getCoinReturn());
+    }
+
+    @Test
+    public void shouldAllowChangeInCoinReturnUsingMultipleTypeOfCoin() {
+        quickDollarInsert();
+        machine.select("CANDY");
+        assertEquals("QUARTER, DIME", machine.getCoinReturn());
     }
 }

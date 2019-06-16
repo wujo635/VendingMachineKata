@@ -48,6 +48,5 @@ public class CoinManager {
         if (itemPrice != totalCents) {
             this.coinReturn = "QUARTER, QUARTER";
         }
-
     }
 }
