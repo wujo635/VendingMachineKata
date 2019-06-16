@@ -40,7 +40,7 @@ public class CoinManager {
         return this.totalCents;
     }
 
-    public String getCoinReturn() {
+    protected String getCoinReturn() {
         return this.coinReturn;
     }
 }

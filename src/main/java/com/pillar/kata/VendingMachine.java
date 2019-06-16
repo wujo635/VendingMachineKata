@@ -13,6 +13,9 @@ public class VendingMachine {
         this.coinManager = new CoinManager();
         this.catalog = new ProductCatalog();
         this.message = new LinkedList<>();
+        catalog.add("COLA", 100);
+        catalog.add("CHIPS", 50);
+        catalog.add("CANDY", 65);
     }
 
     public String getDisplay() {
