@@ -45,8 +45,23 @@ public class CoinManager {
     }
 
     protected void makeChange(int itemPrice) {
-        if (itemPrice != totalCents) {
-            this.coinReturn = "QUARTER, QUARTER";
+        int changeToReturn = totalCents - itemPrice;
+        nextCoinChange(changeToReturn);
+    }
+
+    private void nextCoinChange(int changeToReturn) {
+        if (changeToReturn > 0) {
+            if (changeToReturn >= coinValueMap.get("QUARTER")) {
+                addToCoinReturn("QUARTER");
+                changeToReturn -= coinValueMap.get("QUARTER");
+            } else if (changeToReturn >= coinValueMap.get("DIME")) {
+                addToCoinReturn("DIME");
+                changeToReturn -= coinValueMap.get("DIME");
+            } else if (changeToReturn >= coinValueMap.get("NICKEL")) {
+                addToCoinReturn("NICKEL");
+                changeToReturn -= coinValueMap.get("NICKEL");
+            }
+            nextCoinChange(changeToReturn);
         }
     }
 }
