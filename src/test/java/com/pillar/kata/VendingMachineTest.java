@@ -82,4 +82,11 @@ public class VendingMachineTest {
         machine.select("CANDY");
         assertEquals("PRICE 0.65", machine.getDisplay());
     }
+
+    @Test
+    public void shouldReturnChangeInCoinReturn() {
+        quickDollarInsert();
+        machine.select("CHIPS");
+        assertEquals("QUARTER QUARTER", machine.getCoinReturn());
+    }
 }
