@@ -39,8 +39,8 @@ public class VendingMachine {
     public void select(String item) {
         int itemPrice = catalog.getPrice(item);
         if (itemPrice > 0 && coinManager.getValue() >= itemPrice) {
+            coinManager.makeChange(itemPrice);
             message.add("THANK YOU");
-            coinManager = new CoinManager();
         } else {
             message.add("PRICE " + String.format("%.2f", itemPrice / 100.0));
         }

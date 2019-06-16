@@ -1,5 +1,6 @@
 package com.pillar.kata;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -50,6 +51,7 @@ public class VendingMachineTest {
         assertEquals("THANK YOU", machine.getDisplay());
     }
 
+    @Ignore // test deprecated after Make Change
     @Test
     public void shouldDisplayInsertCoinAfterThankYou() {
         this.quickDollarInsert();

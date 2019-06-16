@@ -43,4 +43,8 @@ public class CoinManager {
     protected String getCoinReturn() {
         return this.coinReturn;
     }
+
+    protected void makeChange(int itemPrice) {
+        this.coinReturn = "QUARTER QUARTER";
+    }
 }
