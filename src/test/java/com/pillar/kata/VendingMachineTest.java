@@ -107,7 +107,7 @@ public class VendingMachineTest {
     }
 
     @Test
-    public void shouldReturnUnspentCoins() {
+    public void shouldReturnUnspentCoin() {
         machine.insert("DIME");
         machine.returnCoins();
         assertEquals("DIME", machine.getCoinReturn());

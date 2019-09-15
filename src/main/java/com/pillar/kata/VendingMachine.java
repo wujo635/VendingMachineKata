@@ -47,6 +47,6 @@ public class VendingMachine {
     }
 
     public void returnCoins() {
-
+        coinManager.makeChange(0);
     }
 }
