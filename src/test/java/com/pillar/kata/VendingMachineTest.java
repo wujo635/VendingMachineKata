@@ -105,4 +105,11 @@ public class VendingMachineTest {
         machine.select("CANDY");
         assertEquals("QUARTER, DIME", machine.getCoinReturn());
     }
+
+    @Test
+    public void shouldReturnUnspentCoins() {
+        machine.insert("DIME");
+        machine.returnCoins();
+        assertEquals("DIME", machine.getCoinReturn());
+    }
 }

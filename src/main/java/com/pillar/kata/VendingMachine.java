@@ -45,4 +45,8 @@ public class VendingMachine {
             message.add("PRICE " + String.format("%.2f", itemPrice / 100.0));
         }
     }
+
+    public void returnCoins() {
+
+    }
 }
